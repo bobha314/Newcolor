@@ -139,6 +139,25 @@ public class Picture extends SimplePicture
         }
     }
         
+    public void copyflowerSmaller(Picture source, String option)
+    {
+        Pixel sourcePixel = null;
+        Pixel targetPixel = null;
+        
+        for (int sourceX = 0, targetX = 0;
+            sourceX < source.getWidth();
+            sourceX+=2, targetX++)
+        {
+            for (int sourceY = 0, targetY = 0;
+            sourceY < source.getHeight();
+            sourceY+=2, targetY++)
+            {
+                sourcePixel = source.getPixel(sourceX,sourceY);
+                targetPixel = this.getPixel(targetX,targetY);
+                targetPixel.setColor(sourcePixel.getColor());
+            }
+        }
+    }
         
   /**
    * Constructor that takes a file name and creates the picture

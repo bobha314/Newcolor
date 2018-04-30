@@ -45,16 +45,16 @@ public class TestPicture17
      Picture wao = new Picture("images/wao.jpg");
      train.gray();
 
-     //wao.mirrorVertical();
-     //wao.explore();
-     train.mirrorHorizontal();
-     train.explore();
-     
      Picture temple = new Picture("images/temple.jpg");
      temple.mirrorTemple();
      temple.explore();
      
-     Picture choke = new Picture("images/i just want to choke u
+     Picture choke = new Picture("images/i just want to choke u.jpg");
+     choke.mirrorHorizontal();
+     choke.explore();
+     
+     myCanvas.copyflowerSmaller(train,"b");
+     myCanvas.explore();
      
      //myCanvas.copyKatie();
      //myCanvas.explore();
