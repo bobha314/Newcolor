@@ -16,21 +16,22 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  */
 public class Picture extends SimplePicture
 {
+    
   ///////////////////// constructors //////////////////////////////////
 
-  /**
-   * Constructor that takes no arguments
-   */
-  public Picture ()
-  {
+    /**
+    * Constructor that takes no arguments
+    */
+    public Picture ()
+    {
     /* not needed but use it to show students the implicit call to super()
      * child constructors always call a parent constructor
      */
     super();
-  }
-
-  public void gray()
-  {   
+    }
+    
+    public void gray()
+    {   
       //copies all pixels into one array takes a lot of spacesd
       Pixel[] pix = this.getPixels();
       Pixel pixel = null;
@@ -44,31 +45,44 @@ public class Picture extends SimplePicture
           spot.setGreen(ave);
           spot.setBlue(ave);
       }
-  }
-  
-  public void copyKatie(/*String sourceFile*/)
-  {
-      String sourceFile = ("images/weirdtrain.jpg");
-      
-      Picture sourcePicture = new Picture(sourceFile);
-      
-      Pixel sourcePixel = null;
-      Pixel targetPixel = null;
-      
-      for (int sourceX = 0, targetX = 200;
-            sourceX < sourcePicture.getWidth();
-            sourceX++, targetX++)
-      {
-           for (int sourceY = 0, targetY = 200;
-            sourceY < sourcePicture.getHeight();
-            sourceY++, targetY++)
-            {
-                //sets the target pixel color to the source pixel color
-                sourcePixel = sourcePicture.getPixel(sourceX, sourceY);
-                targetPixel = this.getPixel(targetX, targetY);
-                targetPixel.setColor(sourcePixel.getColor());
+    }
+    
+    public void hair()
+    {
+        Pixel[] pix = this.getPixels();
+        Pixel pixel = null;
+        
+         for (Pixel spot: pix) 
+         {
+             if (spot.getRed() < 30 && spot.getBlue() < 30 && spot.getGreen() < 30)
+             {
+                 spot.setColor(new Color(228,201,255));
+                }
             }
-        }
+    }
+    
+    
+     
+        
+    public void copy(Picture sourcePicture, int xpos, int ypos)
+    {
+          Pixel sourcePixel = null;
+          Pixel targetPixel = null;
+          
+          for (int sourceX = 0, targetX = xpos;
+                sourceX < sourcePicture.getWidth();
+                sourceX++, targetX++)
+          {
+                for (int sourceY = 0, targetY = ypos;
+                sourceY < sourcePicture.getHeight();
+                sourceY++, targetY++)
+                {
+                    //sets the target pixel color to the source pixel color
+                    sourcePixel = sourcePicture.getPixel(sourceX, sourceY);
+                    targetPixel = this.getPixel(targetX, targetY);
+                    targetPixel.setColor(sourcePixel.getColor());
+                }
+          }
     }
            
     /**
