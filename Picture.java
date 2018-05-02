@@ -24,10 +24,10 @@ public class Picture extends SimplePicture
     */
     public Picture ()
     {
-    /* not needed but use it to show students the implicit call to super()
-     * child constructors always call a parent constructor
-     */
-    super();
+        /* not needed but use it to show students the implicit call to super()
+         * child constructors always call a parent constructor
+         */
+        super();
     }
     
     public void gray()
@@ -50,7 +50,6 @@ public class Picture extends SimplePicture
     public void hair()
     {
         Pixel[] pix = this.getPixels();
-        Pixel pixel = null;
         
          for (Pixel spot: pix) 
          {
@@ -61,8 +60,58 @@ public class Picture extends SimplePicture
             }
     }
     
-    
-     
+    public void invert()
+    {
+        Pixel[] pix = this.getPixels();
+        
+        for (Pixel spot: pix)
+        {
+            int value1 = 255-spot.getRed();
+            spot.setRed(value1);
+            
+            int value2 = 255-spot.getBlue();
+            spot.setBlue(value2);
+            
+            int value3 = 255-spot.getGreen();
+            spot.setGreen(value3);
+        }
+    }
+    /* 
+    public void swirl()
+    {
+        Pixel[] pix = this.getPixels();
+        
+        for (int i = 0; i < 699; i++)
+        {
+            for (int j = 0; j < 699; j++)
+            {
+                Pixel temp = new Pixel();
+                temp = pix[i][j+1];
+                pix[i][j+1] = pix[i][j];
+                
+            }
+        }
+    }
+    */
+    public Pixel recursive()
+    {
+        Pixel[] pix = this.getPixels();
+        
+        if (pix.length == 0)
+             return null;
+             
+        else 
+        {
+            Pixel[] newpix;
+            for (int i = 0; i < pix.length-700; i++)
+            {
+                newpix[i] = pix[i];
+            }
+            return recursive(newpix);
+        }
+    }
+            
+
         
     public void copy(Picture sourcePicture, int xpos, int ypos)
     {
