@@ -9,7 +9,7 @@ public class Collage
         Picture kennef = new Picture("images/kennef.jpg");
         Picture ogkennef = new Picture("images/kennef.jpg");
         Picture canvas = new Picture("images/LargeCanvas.jpg");
-        
+        /*
         kennef.mirrorHorizontal();
         canvas.copy(kennef,0,0);
         
@@ -26,6 +26,8 @@ public class Collage
         
         ogkennef.mirrorHorizontal();
         canvas.copy(ogkennef,1400,700);
+        */
+        canvas.recursive(kennef);
         
         canvas.explore();
         

@@ -93,26 +93,55 @@ public class Picture extends SimplePicture
         }
     }
     */
-    public Pixel recursive()
+    public Picture recursive(Picture sourcePicture)
     {
-        Pixel[] pix = this.getPixels();
-        
-        if (pix.length == 0)
-             return null;
+        Pixel sourcePixel = null;
+        Pixel targetPixel = null;
+          
+        if (sourcePicture.getWidth() < 500)
+             return this;
              
         else 
         {
-            Pixel[] newpix;
-            for (int i = 0; i < pix.length-700; i++)
-            {
-                newpix[i] = pix[i];
+            for (int sourceX = 0, targetX = 0;
+                sourceX < sourcePicture.getWidth()/2;
+                sourceX++, targetX++)
+                {
+                for (int sourceY = 0, targetY = 0;
+                sourceY < sourcePicture.getHeight()/2;
+                sourceY++, targetY++)
+                {
+                    //sets the target pixel color to the source pixel color
+                    sourcePixel = sourcePicture.getPixel(sourceX, sourceY);
+                    targetPixel = this.getPixel(targetX, targetY);
+                    targetPixel.setColor(sourcePixel.getColor());
+                }
             }
-            return recursive(newpix);
+            
+            return recursive(this);
         }
     }
-            
-
-        
+    
+    /*     
+    public void secondcopy(Pixel[] sourcepix, int xpos, int ypos)
+    {
+          Pixel pix = null;
+          Pixel target = null;
+          
+          Pixel[] targetpix = this.getPixels();
+          
+          for (int source = 0;
+                source < sourcepix.length;
+                source++)
+          {
+                //sets the target pixel color to the source pixel color
+                pix = sourcepix[source];
+                target = targetpix[source];
+                target.setColor(pix.getColor());
+          }
+    }
+    */
+   
     public void copy(Picture sourcePicture, int xpos, int ypos)
     {
           Pixel sourcePixel = null;
