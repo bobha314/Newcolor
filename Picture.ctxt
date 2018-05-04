@@ -25,8 +25,8 @@ comment2.params=
 comment2.target=void\ hair()
 comment3.params=
 comment3.target=void\ invert()
-comment4.params=sourcePicture
-comment4.target=Picture\ recursive(Picture)
+comment4.params=sourcePicture\ divide
+comment4.target=void\ recursive(Picture,\ int)
 comment4.text=\ \r\n\ \ \ \ public\ void\ swirl()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ Pixel[]\ pix\ \=\ this.getPixels();\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ 699;\ i++)\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ for\ (int\ j\ \=\ 0;\ j\ <\ 699;\ j++)\r\n\ \ \ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pixel\ temp\ \=\ new\ Pixel();\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ \=\ pix[i][j+1];\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pix[i][j+1]\ \=\ pix[i][j];\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
 comment5.params=sourcePicture\ xpos\ ypos
 comment5.target=void\ copy(Picture,\ int,\ int)

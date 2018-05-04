@@ -93,23 +93,23 @@ public class Picture extends SimplePicture
         }
     }
     */
-    public Picture recursive(Picture sourcePicture)
+    public void recursive(Picture sourcePicture, int divide)
     {
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
           
-        if (sourcePicture.getWidth() < 500)
-             return this;
+        if (divide > 17)
+             return;
              
         else 
         {
             for (int sourceX = 0, targetX = 0;
-                sourceX < sourcePicture.getWidth()/2;
-                sourceX++, targetX++)
+                sourceX < sourcePicture.getWidth();
+                sourceX += divide, targetX++)
                 {
                 for (int sourceY = 0, targetY = 0;
-                sourceY < sourcePicture.getHeight()/2;
-                sourceY++, targetY++)
+                sourceY < sourcePicture.getHeight();
+                sourceY += divide, targetY++)
                 {
                     //sets the target pixel color to the source pixel color
                     sourcePixel = sourcePicture.getPixel(sourceX, sourceY);
@@ -117,8 +117,28 @@ public class Picture extends SimplePicture
                     targetPixel.setColor(sourcePixel.getColor());
                 }
             }
-            
-            return recursive(this);
+            divide++;
+            recursive(sourcePicture,divide);
+        }
+    }
+    
+    public void pixel(Picture source)
+    {
+        
+        for (int sourceX = 0, targetX = 0;
+            sourceX < sourcePicture.getWidth();
+            sourceX += 20, targetX += 20)
+            {
+            for (int sourceY = 0, targetY = 0;
+            sourceY < sourcePicture.getHeight();
+            sourceY += 20, targetY += 20)
+            {
+                //sets the target pixel color to the source pixel color
+                sourcePixel = sourcePicture.getPixel(sourceX, sourceY);
+                targetPixel = this.getPixel(targetX, targetY);
+                targetPixel.setColor(sourcePixel.getColor());
+             
+            }
         }
     }
     

@@ -27,7 +27,7 @@ public class Collage
         ogkennef.mirrorHorizontal();
         canvas.copy(ogkennef,1400,700);
         */
-        canvas.recursive(kennef);
+        canvas.recursive(kennef,2);
         
         canvas.explore();
         
