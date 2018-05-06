@@ -76,24 +76,8 @@ public class Picture extends SimplePicture
             spot.setGreen(value3);
         }
     }
-    /* 
-    public void swirl()
-    {
-        Pixel[] pix = this.getPixels();
-        
-        for (int i = 0; i < 699; i++)
-        {
-            for (int j = 0; j < 699; j++)
-            {
-                Pixel temp = new Pixel();
-                temp = pix[i][j+1];
-                pix[i][j+1] = pix[i][j];
-                
-            }
-        }
-    }
-    */
-    public void recursive(Picture sourcePicture, int divide)
+   
+    public void recursive(Picture sourcePicture, int divide, int xpos, int ypos)
     {
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
@@ -103,11 +87,11 @@ public class Picture extends SimplePicture
              
         else 
         {
-            for (int sourceX = 0, targetX = 0;
+            for (int sourceX = 0, targetX = xpos;
                 sourceX < sourcePicture.getWidth();
                 sourceX += divide, targetX++)
                 {
-                for (int sourceY = 0, targetY = 0;
+                for (int sourceY = 0, targetY = ypos;
                 sourceY < sourcePicture.getHeight();
                 sourceY += divide, targetY++)
                 {
@@ -118,10 +102,32 @@ public class Picture extends SimplePicture
                 }
             }
             divide++;
-            recursive(sourcePicture,divide);
+            recursive(sourcePicture,divide,xpos,ypos);
         }
     }
     
+    public void rotate (Picture sourcePicture,int xpos, int ypos)
+    {
+        Pixel sourcePixel = null;
+        Pixel targetPixel = null;
+        
+        
+        for (int sourceX = 0, targetY = ypos;
+                sourceX < sourcePicture.getWidth();
+                sourceX++, targetY++)
+          {
+                for (int sourceY = 0, targetX = sourcePicture.getHeight()+xpos;
+                sourceY < sourcePicture.getHeight();
+                sourceY++, targetX--)
+                {
+                    sourcePixel = sourcePicture.getPixel(sourceX, sourceY);
+                    targetPixel = this.getPixel(targetX, targetY);
+                    targetPixel.setColor(sourcePixel.getColor());
+                }                
+          }
+    }
+    
+ /*   
     public void pixel(Picture source)
     {
         
@@ -141,28 +147,9 @@ public class Picture extends SimplePicture
             }
         }
     }
-    
-    /*     
-    public void secondcopy(Pixel[] sourcepix, int xpos, int ypos)
-    {
-          Pixel pix = null;
-          Pixel target = null;
-          
-          Pixel[] targetpix = this.getPixels();
-          
-          for (int source = 0;
-                source < sourcepix.length;
-                source++)
-          {
-                //sets the target pixel color to the source pixel color
-                pix = sourcepix[source];
-                target = targetpix[source];
-                target.setColor(pix.getColor());
-          }
-    }
-    */
-   
-    public void copy(Picture sourcePicture, int xpos, int ypos)
+*/
+
+    public void copy (Picture sourcePicture, int xpos, int ypos)
     {
           Pixel sourcePixel = null;
           Pixel targetPixel = null;
