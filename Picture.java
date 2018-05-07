@@ -111,7 +111,7 @@ public class Picture extends SimplePicture
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
         
-        
+        //sets y coordinates as x coordinates
         for (int sourceX = 0, targetY = ypos;
                 sourceX < sourcePicture.getWidth();
                 sourceX++, targetY++)
@@ -126,28 +126,6 @@ public class Picture extends SimplePicture
                 }                
           }
     }
-    
- /*   
-    public void pixel(Picture source)
-    {
-        
-        for (int sourceX = 0, targetX = 0;
-            sourceX < sourcePicture.getWidth();
-            sourceX += 20, targetX += 20)
-            {
-            for (int sourceY = 0, targetY = 0;
-            sourceY < sourcePicture.getHeight();
-            sourceY += 20, targetY += 20)
-            {
-                //sets the target pixel color to the source pixel color
-                sourcePixel = sourcePicture.getPixel(sourceX, sourceY);
-                targetPixel = this.getPixel(targetX, targetY);
-                targetPixel.setColor(sourcePixel.getColor());
-             
-            }
-        }
-    }
-*/
 
     public void copy (Picture sourcePicture, int xpos, int ypos)
     {
