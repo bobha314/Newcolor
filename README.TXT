@@ -1,12 +1,8 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
+Robert Ha 
+Hayes p.2
+7 may 2018
+Collage Project
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+FINAL IMAGE IS IN IMAGES
+
+	For my collage, I took a picture of my friend during the solar eclipse and made 6 different changes to it. In the first image, I simple copied the original photo onto the coordinates (0,0). In my copy method I had an additional set of parameters that took the x and y coordinates and set them as the target x and y positions in the canvas. For the next modification, I made a recursive method where I recursively called the method recursive and divided the image into half the size over and over until the desired size. I made the images smaller and smaller by increasing the divide variable by one every time the method was recursively called. For my second modification I inverted the colors by subtracting the rgb values by 255 and setting them as the new colors. For my third modification, I converted the image into grayscale by taking the average of the rgb values and setting all the rgb values as the average. For my fourth modification I mirrored the photo over a vertical line and for my fifth modification I mirrored the photo over a horizontal line. For my last modification, I rotated the image 90 degrees. I rotated the image by taking the x coordinate of desired pixel in the original pixel and setting it as the y coordinate in the canvas and setting the y coordinate of the original as the x coordinate in the canvas. 

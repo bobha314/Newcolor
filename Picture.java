@@ -86,7 +86,7 @@ public class Picture extends SimplePicture
              return;
              
         else 
-        {
+        {           
             for (int sourceX = 0, targetX = xpos;
                 sourceX < sourcePicture.getWidth();
                 sourceX += divide, targetX++)
@@ -101,7 +101,9 @@ public class Picture extends SimplePicture
                     targetPixel.setColor(sourcePixel.getColor());
                 }
             }
+            //increasing divide increases the amount the image is divided
             divide++;
+            //recursively called
             recursive(sourcePicture,divide,xpos,ypos);
         }
     }
@@ -235,6 +237,8 @@ public class Picture extends SimplePicture
             }
         }
     }
+    
+    
         
   /**
    * Constructor that takes a file name and creates the picture
